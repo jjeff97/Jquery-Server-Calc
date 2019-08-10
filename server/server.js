@@ -5,7 +5,7 @@ const PORT = 5000;
 
 app.use(express.static('server/public'));
 
-app.get('/demo', (req,res) => {
+app.get('/calc', (req,res) => {
     console.log('GET route');
     res.send('Got it');
 })
