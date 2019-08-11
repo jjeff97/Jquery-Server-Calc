@@ -1,9 +1,11 @@
 const userInfo ={
-    number1: null,
-    number2: null,
+    num1: null,
+    num2: null,
     result: null
 }
-
+let num1 = 0
+let num2 = 0
+let result = 0
 $(document).ready(init);
 
 function init() {
@@ -20,28 +22,29 @@ function addNumber(){
     let num1=parseInt($("#js-input-num1").val());
     let num2=parseInt($("#js-input-num2").val());
     let result = num1+num2;
-    $('.js-container').append("The Sum: " + result);
+    
+
 }   
 
 function subtractNumber(){
     let num1=parseInt($("#js-input-num1").val());
     let num2=parseInt($("#js-input-num2").val());
     let result = num1-num2;
-    $('.js-container').append("The Sum: " + result);
+    
 }   
 
 function multiplyNumber(){
     let num1=parseInt($("#js-input-num1").val());
     let num2=parseInt($("#js-input-num2").val());
     let result = num1*num2;
-    $('.js-container').append("The Sum: " + result);
+   
 }   
 
 function divideNumber(){
     let num1=parseInt($("#js-input-num1").val());
     let num2=parseInt($("#js-input-num2").val());
     let result = num1/num2;
-    $('.js-container').append("The Sum: " + result)
+    
 }   
 
 
@@ -54,4 +57,17 @@ function getCalc() {
     }).then((response) =>{
         console.log(response)
     })
+}
+
+function postData(){
+userInfo.isUser = true;
+
+$.ajax({
+    type: 'POST',
+    url: '/calc',
+    data: userInfo
+
+}).then((response) => {
+    console.log(response);
+})
 }
